@@ -216,6 +216,10 @@ class PreconditionMachine(RuleBasedStateMachine):
     def div_by_precondition_before(self, num):
         self.num = num / self.num
 
+    @precondition(lambda self: self.num != 0)
+    def div_by_precondition_no_rule(self, num):
+        self.num = num / self.num
+
 
 bad_machines = (
     OrderedStateMachine, SetStateMachine, BalancedTrees,
